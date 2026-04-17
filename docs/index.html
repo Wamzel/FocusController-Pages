@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Focus for grandMA3 — Support</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Focus turns your iPhone into a hands-on focus remote for grandMA3. Drive pan, tilt, zoom and focus with analog thumbsticks over OSC/WiFi.">
+<meta name="theme-color" content="#0A0D15">
+<meta property="og:title" content="Focus for grandMA3">
+<meta property="og:description" content="Hands-on focusing from your pocket. Thumbstick-driven OSC remote for grandMA3.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="container">
+    <div class="brand">
+      <img src="icon.svg" alt="" class="icon" width="96" height="96">
+      <div>
+        <h1>Focus <span class="muted">for grandMA3</span></h1>
+        <p class="tagline">Hands-on focusing from your pocket. Thumbstick-driven OSC remote.</p>
+      </div>
+    </div>
+    <nav class="hero-nav">
+      <a href="#setup">Setup</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">Contact</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+
+<section id="intro" class="card">
+  <p>Focus sends <abbr title="Open Sound Control">OSC</abbr> over Wi-Fi to your grandMA3 console or onPC so you can focus fixtures with a thumbstick — from the phone already in your pocket. Pair a DualSense (PS5) controller for physical feel, or use the on-screen pad.</p>
+</section>
+
+<section id="features" class="grid">
+  <div class="feature">
+    <h3>Velocity sticks</h3>
+    <p>Analog deflection sets the speed of change on pan / tilt / zoom / focus. Smooth, encoder-style feel.</p>
+  </div>
+  <div class="feature">
+    <h3>Per-stick sensitivity</h3>
+    <p>Tune each joystick's scale for fine movement or quick sweeps.</p>
+  </div>
+  <div class="feature">
+    <h3>Two layouts</h3>
+    <p>Focus pad (one stick + prev / highlight / next) or the full DualSense preview. Toggle instantly.</p>
+  </div>
+  <div class="feature">
+    <h3>Fully remappable</h3>
+    <p>Every button and axis can fire a MA3 command-line string or hardkey — edit in the Mapping tab.</p>
+  </div>
+  <div class="feature">
+    <h3>Optional gamepad</h3>
+    <p>DualSense over Bluetooth works natively. Physical and on-screen controls are active simultaneously.</p>
+  </div>
+  <div class="feature">
+    <h3>Local-only</h3>
+    <p>No accounts. No analytics. Traffic only goes to the console IP you enter.</p>
+  </div>
+</section>
+
+<section id="setup" class="card">
+  <h2>Getting started</h2>
+  <ol class="steps">
+    <li>
+      <strong>Put phone and console on the same Wi-Fi.</strong>
+      Not just the same SSID — the same subnet. Guest networks and AP isolation will block OSC.
+    </li>
+    <li>
+      <strong>Configure MA3 to receive OSC.</strong>
+      Menu → Settings → Network → OSC. Add an input on port <code>8000</code> with prefix <code>/ma</code>, and route:
+      <ul>
+        <li><code>/cmd</code> (string) → Command Line</li>
+        <li><code>/key/Highlt</code>, <code>/key/Solo</code>, <code>/key/Store</code>, <code>/key/Update</code> (float) → their matching hardkeys (1.0 = press, 0.0 = release)</li>
+      </ul>
+      The in-app <em>MA3 OSC Setup</em> screen lists the same steps with the exact field names.
+    </li>
+    <li>
+      <strong>Open Focus → Connection.</strong>
+      Enter the console's IP. Tap Connect. iOS will prompt for Local Network permission on first launch — allow it.
+    </li>
+    <li>
+      <strong>Verify.</strong>
+      Switch to the Live tab. Tap any button; the OSC log under the pad shows what was sent.
+    </li>
+    <li>
+      <strong>(Optional) Pair a DualSense.</strong>
+      iPhone Settings → Bluetooth → hold PS + Create on the controller until the lightbar pulses → tap the device in the list. Focus picks it up automatically.
+    </li>
+  </ol>
+</section>
+
+<section id="faq" class="card">
+  <h2>Common questions</h2>
+
+  <details>
+    <summary>The app shows "Connected" but MA3 isn't reacting.</summary>
+    <p>UDP is connectionless — "Connected" only means the socket is set up locally. If MA3 isn't responding, the message format doesn't match an OSC input rule on the console side.</p>
+    <p>Check the Mapping tab for what the app is sending, then check MA3's OSC config for a matching input pattern. Use Hexler Protokol or any OSC monitor on the same Wi-Fi to verify the packets look right.</p>
+  </details>
+
+  <details>
+    <summary>The fixture jumps to a fixed value instead of moving smoothly.</summary>
+    <p>MA3's command line needs a <em>space</em> between the sign and the number to treat it as a relative change: <code>Attribute "Pan" At + 5</code> adds, <code>Attribute "Pan" At +5</code> sets absolute. Focus emits the spaced form by default. If you've customized the template in the Mapping editor, make sure <code>&lt;d&gt;</code> stays on its own with a space.</p>
+  </details>
+
+  <details>
+    <summary>I'm not receiving any OSC at all.</summary>
+    <p>Most likely causes, in order:</p>
+    <ol>
+      <li><strong>Local Network permission.</strong> iPhone Settings → Privacy & Security → Local Network → Focus must be on.</li>
+      <li><strong>Different subnets / guest Wi-Fi.</strong> Check that your iPhone IP and console IP share the first three octets.</li>
+      <li><strong>MA3 OSC port already in use.</strong> If you start MA3 after Protokol (or vice versa) on the same port, whichever started second silently fails to bind.</li>
+      <li><strong>Mac firewall.</strong> System Settings → Network → Firewall. Temporarily off for testing.</li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Does the DualSense work on iPad or Mac?</summary>
+    <p>Focus is iPhone-only for now. DualSense itself pairs with iPad and Mac natively, but the app targets iPhone because the point is fitting in your pocket.</p>
+  </details>
+
+  <details>
+    <summary>Does it work with grandMA2?</summary>
+    <p>The OSC format in the default mapping (<code>Attribute "Pan" At + &lt;d&gt;</code>) is MA3 syntax. MA2's OSC is also available — every binding is editable, so you can adapt Focus to MA2 by rewriting the templates in the Mapping editor. Full MA2 defaults aren't bundled.</p>
+  </details>
+
+  <details>
+    <summary>Can I use a different controller?</summary>
+    <p>Anything Apple's GameController framework sees as an "extended gamepad" should work — Xbox Series X|S controllers, MFi gamepads, etc. Button labels in the app stay DualSense-themed.</p>
+  </details>
+
+  <details>
+    <summary>Will adding data collection break my free install?</summary>
+    <p>No — there's no data collection of any kind, now or planned. See the <a href="privacy.html">privacy policy</a>.</p>
+  </details>
+</section>
+
+<section id="contact" class="card">
+  <h2>Contact</h2>
+  <p>Bugs, feature requests, MA3 OSC quirks, or anything else:</p>
+  <p><a class="button" href="mailto:w.wagemans@t-minusdesign.com?subject=Focus%20for%20grandMA3">w.wagemans@t-minusdesign.com</a></p>
+  <p class="fine">Please include your iOS version, Focus version (Connection tab), and the OSC log from the app when reporting issues.</p>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p class="fine">
+      Focus is an independent third-party tool and is not affiliated with, endorsed by, or sponsored by MA Lighting Technology GmbH. "grandMA3" is a trademark of MA Lighting Technology GmbH.
+    </p>
+    <p class="fine">© 2026 Wessel Wagemans · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+  </div>
+</footer>
+
+</body>
+</html>
