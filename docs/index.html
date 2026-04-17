@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>Focus for grandMA3 — Support</title>
+<title>Nudge — Focus Companion for grandMA3</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Focus turns your iPhone into a hands-on focus remote for grandMA3. Drive pan, tilt, zoom and focus with analog thumbsticks over OSC/WiFi.">
+<meta name="description" content="Nudge turns your iPhone into a hands-on focus companion for grandMA3. Drive pan, tilt, zoom and focus with analog thumbsticks over OSC/WiFi.">
 <meta name="theme-color" content="#0A0D15">
-<meta property="og:title" content="Focus for grandMA3">
+<meta property="og:title" content="Nudge — Focus Companion for grandMA3">
 <meta property="og:description" content="Hands-on focusing from your pocket. Thumbstick-driven OSC remote for grandMA3.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -19,8 +19,8 @@
     <div class="brand">
       <img src="icon.svg" alt="" class="icon" width="96" height="96">
       <div>
-        <h1>Focus <span class="muted">for grandMA3</span></h1>
-        <p class="tagline">Hands-on focusing from your pocket. Thumbstick-driven OSC remote.</p>
+        <h1>Nudge <span class="muted">— Focus Companion</span></h1>
+        <p class="tagline">Hands-on focusing for grandMA3, from the phone in your pocket.</p>
       </div>
     </div>
     <nav class="hero-nav">
@@ -36,7 +36,7 @@
 <main class="container">
 
 <section id="intro" class="card">
-  <p>Focus sends <abbr title="Open Sound Control">OSC</abbr> over Wi-Fi to your grandMA3 console or onPC so you can focus fixtures with a thumbstick — from the phone already in your pocket. Pair a DualSense (PS5) controller for physical feel, or use the on-screen pad.</p>
+  <p>Nudge sends <abbr title="Open Sound Control">OSC</abbr> over Wi-Fi to your grandMA3 console or onPC so you can focus fixtures with a thumbstick — from the phone already in your pocket. Pair a DualSense (PS5) controller for physical feel, or use the on-screen pad.</p>
 </section>
 
 <section id="features" class="grid">
@@ -66,6 +66,11 @@
   </div>
 </section>
 
+<section id="screenshots" class="card">
+  <h2>Why the name</h2>
+  <p>A "nudge" is a precise, continuous adjustment — exactly what velocity-based thumbstick input produces. Deflect the stick and Nudge sends a stream of small relative changes (<code>Attribute "Pan" At + 1.23</code>) to MA3. Release, and it stops. Hold, and it drifts. The harder you push, the faster the change. No encoders, no clicking through pages.</p>
+</section>
+
 <section id="setup" class="card">
   <h2>Getting started</h2>
   <ol class="steps">
@@ -83,7 +88,7 @@
       The in-app <em>MA3 OSC Setup</em> screen lists the same steps with the exact field names.
     </li>
     <li>
-      <strong>Open Focus → Connection.</strong>
+      <strong>Open Nudge → Connection.</strong>
       Enter the console's IP. Tap Connect. iOS will prompt for Local Network permission on first launch — allow it.
     </li>
     <li>
@@ -92,7 +97,7 @@
     </li>
     <li>
       <strong>(Optional) Pair a DualSense.</strong>
-      iPhone Settings → Bluetooth → hold PS + Create on the controller until the lightbar pulses → tap the device in the list. Focus picks it up automatically.
+      iPhone Settings → Bluetooth → hold PS + Create on the controller until the lightbar pulses → tap the device in the list. Nudge picks it up automatically.
     </li>
   </ol>
 </section>
@@ -115,7 +120,7 @@
     <summary>I'm not receiving any OSC at all.</summary>
     <p>Most likely causes, in order:</p>
     <ol>
-      <li><strong>Local Network permission.</strong> iPhone Settings → Privacy & Security → Local Network → Focus must be on.</li>
+      <li><strong>Local Network permission.</strong> iPhone Settings → Privacy & Security → Local Network → Nudge must be on.</li>
       <li><strong>Different subnets / guest Wi-Fi.</strong> Check that your iPhone IP and console IP share the first three octets.</li>
       <li><strong>MA3 OSC port already in use.</strong> If you start MA3 after Protokol (or vice versa) on the same port, whichever started second silently fails to bind.</li>
       <li><strong>Mac firewall.</strong> System Settings → Network → Firewall. Temporarily off for testing.</li>
@@ -124,12 +129,12 @@
 
   <details>
     <summary>Does the DualSense work on iPad or Mac?</summary>
-    <p>Focus is iPhone-only for now. DualSense itself pairs with iPad and Mac natively, but the app targets iPhone because the point is fitting in your pocket.</p>
+    <p>Nudge is iPhone-only for now. DualSense itself pairs with iPad and Mac natively, but the app targets iPhone because the point is fitting in your pocket.</p>
   </details>
 
   <details>
     <summary>Does it work with grandMA2?</summary>
-    <p>The OSC format in the default mapping (<code>Attribute "Pan" At + &lt;d&gt;</code>) is MA3 syntax. MA2's OSC is also available — every binding is editable, so you can adapt Focus to MA2 by rewriting the templates in the Mapping editor. Full MA2 defaults aren't bundled.</p>
+    <p>The OSC format in the default mapping (<code>Attribute "Pan" At + &lt;d&gt;</code>) is MA3 syntax. MA2's OSC is also available — every binding is editable, so you can adapt Nudge to MA2 by rewriting the templates in the Mapping editor. Full MA2 defaults aren't bundled.</p>
   </details>
 
   <details>
@@ -146,8 +151,8 @@
 <section id="contact" class="card">
   <h2>Contact</h2>
   <p>Bugs, feature requests, MA3 OSC quirks, or anything else:</p>
-  <p><a class="button" href="mailto:w.wagemans@t-minusdesign.com?subject=Focus%20for%20grandMA3">w.wagemans@t-minusdesign.com</a></p>
-  <p class="fine">Please include your iOS version, Focus version (Connection tab), and the OSC log from the app when reporting issues.</p>
+  <p><a class="button" href="mailto:w.wagemans@t-minusdesign.com?subject=Nudge%20for%20grandMA3">w.wagemans@t-minusdesign.com</a></p>
+  <p class="fine">Please include your iOS version, Nudge version (Connection tab), and the OSC log from the app when reporting issues.</p>
 </section>
 
 </main>
@@ -155,7 +160,7 @@
 <footer>
   <div class="container">
     <p class="fine">
-      Focus is an independent third-party tool and is not affiliated with, endorsed by, or sponsored by MA Lighting Technology GmbH. "grandMA3" is a trademark of MA Lighting Technology GmbH.
+      Nudge is an independent third-party tool and is not affiliated with, endorsed by, or sponsored by MA Lighting Technology GmbH. "grandMA3" is a trademark of MA Lighting Technology GmbH.
     </p>
     <p class="fine">© 2026 Wessel Wagemans · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
   </div>
