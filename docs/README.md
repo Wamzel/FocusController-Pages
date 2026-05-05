@@ -43,9 +43,9 @@ The URLs you paste into App Store Connect are then:
 
 ## Custom domain (optional)
 
-If you want it at e.g. `focus.t-minusdesign.com`:
+If you want it at e.g. `docs.wgmns.com`:
 
-1. Add a `CNAME` file inside `docs/` containing one line: `focus.t-minusdesign.com`.
+1. Add a `CNAME` file inside `docs/` containing one line: `docs.wgmns.com`.
 2. In your DNS, add a CNAME record pointing that subdomain to `<user>.github.io`.
 3. Repo → Settings → Pages → Custom domain → enter the same value. Check **Enforce HTTPS** once the cert provisions (usually ~15 min).
 
