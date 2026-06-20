@@ -1,4 +1,4 @@
-# Support site for Focus for grandMA3
+# Support site for Nudge
 
 Static site hosted on GitHub Pages. Used as the App Store support URL and privacy policy URL.
 

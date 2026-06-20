@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <title>Nudge — Privacy Policy</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Privacy policy for Nudge — iPhone focus companion for grandMA3. No data collection, no tracking, no third parties.">
+<meta name="description" content="Privacy policy for Nudge — iPhone focus companion for grandMA3, grandMA2, Chamsys MagicQ and Avolites Titan. No data collection, no tracking, no third parties.">
 <meta name="theme-color" content="#0A0D15">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="style.css">
@@ -17,7 +17,7 @@
       <img src="icon.svg" alt="" class="icon" width="72" height="72">
       <div>
         <h1>Privacy Policy</h1>
-        <p class="tagline">Nudge — Focus Companion for grandMA3</p>
+        <p class="tagline">Nudge — Focus Companion for grandMA3, grandMA2, Chamsys MagicQ and Avolites Titan</p>
       </div>
     </div>
     <nav class="hero-nav">
@@ -30,7 +30,7 @@
 <main class="container">
 
 <section class="card">
-  <p class="fine">Last updated: April 2026</p>
+  <p class="fine">Last updated: May 2026</p>
 
   <h2>Short version</h2>
   <p>Nudge does not collect, transmit, or store any personal data. It does not use analytics, advertising SDKs, or third-party trackers. All settings stay on your device. The only network traffic Nudge ever produces goes directly to the console IP address you yourself enter.</p>
@@ -46,19 +46,22 @@
   <p>The app saves the following preferences locally on your iPhone, only:</p>
   <ul>
     <li>OSC destination host, port, and address prefix you entered</li>
+    <li>Selected console preset (grandMA3, grandMA2, Chamsys MagicQ or Avolites Titan)</li>
     <li>Joystick sensitivity values you selected</li>
-    <li>Your custom mapping profile</li>
+    <li>Your custom mapping profile (one per console preset)</li>
+    <li>Pocket mode preference (off by default)</li>
     <li>Your theme preference (system / light / dark) and last-used Live tab mode</li>
   </ul>
   <p>These are stored in <code>UserDefaults</code> on the device and are removed when you uninstall the app. They are never transmitted off the device.</p>
 
   <h3>Network activity</h3>
-  <p>The only outbound network traffic Nudge generates is OSC messages over UDP, sent exclusively to the IP address and port you configure in the app's Connection screen. Nudge does not contact any other server. It does not report usage, crashes, or diagnostics to the developer or any third party.</p>
+  <p>The only outbound network traffic Nudge generates is OSC messages over UDP, sent exclusively to the IP address and port you configure on the Connect tab. Nudge does not contact any other server. It does not report usage, crashes, or diagnostics to the developer or any third party.</p>
 
-  <h3>Permissions</h3>
+  <h3>Permissions and background modes</h3>
   <ul>
     <li><strong>Local Network.</strong> Required to send OSC to the lighting console on your Wi-Fi. You will be prompted on first launch. Declining will prevent the app from functioning.</li>
     <li><strong>Bluetooth.</strong> Nudge does not request Bluetooth permission directly. Game controller pairing happens in iOS Settings; Nudge uses Apple's GameController framework, which receives input events without touching Bluetooth APIs directly.</li>
+    <li><strong>Background audio (Pocket mode, opt-in).</strong> When you enable Pocket mode on the Connect tab, Nudge holds a silent audio session active so iOS keeps the app running while the screen is locked — letting a paired Bluetooth controller keep driving OSC from your pocket. The session loops a zero-filled audio buffer (no audible content) and is mixed with other audio so it never interrupts music, podcasts, or call audio. The mode is off by default.</li>
   </ul>
 
   <h3>Third-party services</h3>
